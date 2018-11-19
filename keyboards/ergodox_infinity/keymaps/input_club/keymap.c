@@ -11,7 +11,10 @@ enum custom_keycodes {
   PLACEHOLDER = SAFE_RANGE, // can always be here
   EPRM,
   VRSN,
-  RGB_SLD
+  RGB_SLD,
+  MY_HECK_MACRO,
+  MY_AIRHORN_MACRO,
+  MY_HMM_MACRO
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -19,58 +22,58 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /*
  * left hand
  *    +-------+-----+-----+-----+-----+-----+-----+
- *    |   =   |  0  |  2  |  3  |  4  |  5  | ESC |
+ *    |   =   |  0  |  2  |  3  |  4  |  5  | heck|
  *    +-------+-----+-----+-----+-----+-----+-----+
- *    |   \   |  Q  |  W  |  E  |  R  |  T  |LCK-1|
- *    +-------+-----+-----+-----+-----+-----+     |
- *    |  TAB  |  A  |  S  |  D  |  F  |  G  +-----+
- *    +-------+-----+-----+-----+-----+-----+ f1  |
+ *    |   \   |  Q  |  W  |  F  |  P  |  G  | air |
+ *    +-------+-----+-----+-----+-----+-----+ horn|
+ *    |  TAB  |  A  |  R  |  S  |  T  |  D  +-----+
+ *    +-------+-----+-----+-----+-----+-----+ hmm |
  *    | LSHIFT|  Z  |  X  |  C  |  V  |  B  |     |
  *    +-+-----+-----+-----+-----+-----+-----+-----+
- *      |LGUI |  `  |  \  |LEFT |RIGHT|
+ *      |LGUI |  `  |  \  |HOME |END |
  *      +-----+-----+-----+-----+-----+   +-----+-----+
- *                                        |LCTRL| LALT|
+ *                                        | ESC | LALT|
  *                                  +-----+-----+-----+
- *                                  |     |     | HOME|
+ *                                  |     |     | f1  |
  *                                  |BKSPC| DEL +-----+
- *                                  |     |     | END |
+ *                                  |     |     | LCTL |
  *                                  +-----+-----+-----+
  */
-        KC_EQL,  KC_1,   KC_2,    KC_3,    KC_4,    KC_5, KC_ESC,
-        KC_BSLS, KC_Q,   KC_W,    KC_E,    KC_R,    KC_T, TG(L1),
-        KC_TAB,  KC_A,   KC_S,    KC_D,    KC_F,    KC_G,
-        KC_LSFT, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, MO(L1),
-        KC_LGUI, KC_GRV, KC_BSLS, KC_LEFT, KC_RGHT,
-                                                      KC_LCTL, KC_LALT,
-                                                               KC_HOME,
-                                             KC_BSPC, KC_DELT, KC_END,
+        KC_EQL,  KC_1,   KC_2,    KC_3,    KC_4,    KC_5, MY_HECK_MACRO,
+        KC_BSLS, KC_Q,   KC_W,    KC_F,    KC_P,    KC_G, MY_AIRHORN_MACRO,
+        KC_TAB,  KC_A,   KC_R,    KC_S,    KC_T,    KC_D,
+        KC_LSFT, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B, MY_HMM_MACRO,
+        KC_LGUI, KC_GRV, KC_BSLS, KC_HOME, KC_END,
+                                                      KC_ESC, KC_LALT,
+                                                               MO(L1),
+                                             KC_BSPC, KC_DELT, KC_LCTL,
 /* right hand
  *        +-----+-----+-----+-----+-----+-----+-------+
- *        |LCK-2|  6  |  7  |  8  |  9  |  0  |   -   |
+ *        | f2  |  6  |  7  |  8  |  9  |  0  |   -   |
  *        +-----+-----+-----+-----+-----+-----+-------+
- *        |  [  |  Y  |  U  |  I  |  O  |  P  |   ]   |
+ *        |  [  |  J  |  L  |  U  |  Y  |  ;  |   ]   |
  *        |     +-----+-----+-----+-----+-----+-------+
- *        +-----+  H  |  J  |  K  |  L  |  ;  |   '   |
+ *        +-----+  H  |  N  |  E  |  I  |  O  |   '   |
  *        | f1  +-----+-----+-----+-----+-----+-------+
- *        |     |  N  |  M  |  ,  |  .  |  /  | RSHIFT|
+ *        |     |  K  |  M  |  ,  |  .  |  /  | RSHIFT|
  *        +-----+-----+-----+-----+-----+-----+-----+-+
  *                    |LEFT |DOWN | UP  |RIGHT| RGUI|
  *    +-----+-----+   +-----+-----+-----+-----+-----+
- *    | RALT|RCTRL|
+ *    | RALT|PGDN |
  *    +-----+-----+-----+
  *    | PGUP|     |     |
  *    +-----+ ENT | SPC |
- *    | PGDN|     |     |
+ *    |RCTRL|     |     |
  *    +-----+-----+-----+
  */
-             TG(L2),  KC_6,   KC_7,    KC_8,    KC_9,   KC_0,     KC_MINS,
-             KC_LBRC, KC_Y,   KC_U,    KC_I,    KC_O,   KC_P,     KC_RBRC,
-                      KC_H,   KC_J,    KC_K,    KC_L,   KC_SCLN,  KC_QUOT,
-             MO(L1),  KC_N,   KC_M,    KC_COMM, KC_DOT, KC_SLSH,  KC_RSFT,
+             MO(L2),  KC_6,   KC_7,    KC_8,    KC_9,   KC_0,     KC_MINS,
+             KC_LBRC, KC_J,   KC_L,    KC_U,    KC_Y,   KC_SCLN,     KC_RBRC,
+                      KC_H,   KC_N,    KC_E,    KC_I,   KC_O,  KC_QUOT,
+             MO(L1),  KC_K,   KC_M,    KC_COMM, KC_DOT, KC_SLSH,  KC_RSFT,
                               KC_LEFT, KC_DOWN, KC_UP,  KC_RIGHT, KC_RGUI,
-             KC_RALT, KC_RCTL,
+             KC_RALT, KC_PGDN,
              KC_PGUP,
-             KC_PGDN, KC_ENT, KC_SPC
+             KC_RCTL, KC_ENT, KC_SPC
     ),
 
 [L1] = LAYOUT_ergodox( // layer 1 : function layers
@@ -232,6 +235,24 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       }
       return false;
       break;
+    case MY_HECK_MACRO:
+      if (record->event.pressed) {
+        SEND_STRING("`heck`");
+      }
+      return false;
+      break;
+    case MY_AIRHORN_MACRO:
+      if (record->event.pressed) {
+        SEND_STRING(":airhorn:");
+      }
+      return false;
+      break;
+    case MY_HMM_MACRO:
+      if (record->event.pressed) {
+        SEND_STRING(":hmm:");
+      }
+      return false;
+      break;
   }
   return true;
 }
@@ -260,7 +281,7 @@ void matrix_scan_user(void) {
             ergodox_right_led_2_on();
             break;
         default:
-            // none
+            ergodox_right_led_3_on();
             break;
     }
 
